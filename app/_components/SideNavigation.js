@@ -8,7 +8,7 @@ import {
 import SignOutButton from "./SignOutButton";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import SideNavBtn from "./SideNavBtn";
 
 const navLinks = [
   {
@@ -28,60 +28,18 @@ const navLinks = [
   },
 ];
 
-function SideNavigation() {
+function SideNavigation({ isOpen }) {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true);
-  function handleToggle() {
-    setIsOpen((prev) => !prev);
-  }
-
   return (
-    <>
-      <nav className="border-primary-900 flex flex-col border-r lg:hidden">
-        {isOpen ? (
-          <button
-            className="mx-auto w-full -translate-y-14.5 cursor-pointer lg:hidden"
-            onClick={handleToggle}
-          >
-            ▲
-          </button>
-        ) : (
-          <button
-            className="mx-auto w-full -translate-y-14.5 cursor-pointer lg:hidden"
-            onClick={handleToggle}
-          >
-            ▼
-          </button>
-        )}
-        {isOpen && (
-          <ul className="-mt-10 flex flex-col items-center gap-5 text-sm md:text-lg lg:h-full lg:gap-2">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  className={`hover:bg-primary-900 hover:text-primary-100 text-primary-200 flex items-center font-semibold transition-colors lg:gap-4 lg:px-5 lg:py-3 ${
-                    pathname === link.href ? "bg-primary-900" : ""
-                  }`}
-                  href={link.href}
-                >
-                  {link.icon}
-                  <span className="ml-4 shrink-0">{link.name}</span>
-                </Link>
-              </li>
-            ))}
-
-            <li className="-mt-3 shrink-0">
-              <SignOutButton />
-            </li>
-          </ul>
-        )}
-      </nav>
-
-      <nav className="border-primary-900 hidden flex-col border-r lg:flex">
-        <ul className="flex flex-col text-sm md:text-lg lg:h-full lg:gap-2">
+    <div
+      className={`h-full ${isOpen ? "translate-x-0" : " -translate-x-[100%]"} bg-primary-950 min-w-[13rem] overflow-hidden transition-all duration-600`}
+    >
+      <nav className="border-primary-900 flex h-full flex-col border-r">
+        <ul className="flex h-full flex-col gap-2 text-lg">
           {navLinks.map((link) => (
             <li key={link.name} className="flex gap-2">
               <Link
-                className={`hover:bg-primary-900 hover:text-primary-100 text-primary-200 flex items-center font-semibold transition-colors lg:gap-4 lg:px-5 lg:py-3 ${
+                className={`hover:bg-primary-900 hover:text-primary-100 text-primary-200 flex items-center gap-4 px-5 py-3 font-semibold transition-colors ${
                   pathname === link.href ? "bg-primary-900" : ""
                 }`}
                 href={link.href}
@@ -92,12 +50,12 @@ function SideNavigation() {
             </li>
           ))}
 
-          <li className="lg:mt-auto">
+          <li className="mt-auto">
             <SignOutButton />
           </li>
         </ul>
       </nav>
-    </>
+    </div>
   );
 }
 
