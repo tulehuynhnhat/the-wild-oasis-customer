@@ -1,7 +1,7 @@
 function SideNavBtn({ isOpen = true, onToggle }) {
   return (
     <div
-      className={`absolute -top-1 ${isOpen ? "left-40" : "-left-7 lg:left-0"} z-10 cursor-pointer transition-all duration-700`}
+      className={`absolute -top-0.5 ${isOpen ? "left-40" : "-left-7 lg:left-0"} z-10 cursor-pointer transition-all duration-700`}
       onClick={onToggle}
     >
       <span className="inline-block p-2">
