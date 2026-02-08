@@ -30,7 +30,7 @@ const navLinks = [
 
 function SideNavigation() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   function handleToggle() {
     setIsOpen((prev) => !prev);
   }
@@ -54,9 +54,9 @@ function SideNavigation() {
           </button>
         )}
         {isOpen && (
-          <ul className="flex flex-col items-center gap-10 text-sm md:text-lg lg:h-full lg:gap-2">
+          <ul className="-mt-10 flex flex-col items-center gap-5 text-sm md:text-lg lg:h-full lg:gap-2">
             {navLinks.map((link) => (
-              <li key={link.name} className="flex gap-2">
+              <li key={link.name}>
                 <Link
                   className={`hover:bg-primary-900 hover:text-primary-100 text-primary-200 flex items-center font-semibold transition-colors lg:gap-4 lg:px-5 lg:py-3 ${
                     pathname === link.href ? "bg-primary-900" : ""
@@ -64,12 +64,12 @@ function SideNavigation() {
                   href={link.href}
                 >
                   {link.icon}
+                  <span className="ml-4 shrink-0">{link.name}</span>
                 </Link>
-                <span className="shrink-0">{link.name}</span>
               </li>
             ))}
 
-            <li className="shrink-0 lg:mt-auto">
+            <li className="-mt-3 shrink-0">
               <SignOutButton />
             </li>
           </ul>
