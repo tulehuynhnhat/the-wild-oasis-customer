@@ -1,19 +1,25 @@
-import Link from 'next/link';
-import { auth } from '../_lib/auth';
+import Link from "next/link";
+import { auth } from "../_lib/auth";
 
 export default async function Navigation() {
   const session = await auth(); // its using in navigation, make route have navigation dynamic bc it work with cookies and headers
 
   return (
     <nav className="z-10">
-      <ul className="flex gap-2 sm:gap-8 md:gap-16 items-center">
+      <ul className="flex items-center gap-4 sm:gap-8 md:gap-16">
         <li>
-          <Link href="/cabins" className="hover:text-accent-400 transition-colors">
+          <Link
+            href="/cabins"
+            className="hover:text-accent-400 transition-colors"
+          >
             Cabins
           </Link>
         </li>
         <li>
-          <Link href="/about" className="hover:text-accent-400 transition-colors">
+          <Link
+            href="/about"
+            className="hover:text-accent-400 transition-colors"
+          >
             About
           </Link>
         </li>
@@ -21,7 +27,7 @@ export default async function Navigation() {
           {session?.user?.image ? (
             <Link
               href="/account"
-              className="hover:text-accent-400 transition-colors flex items-center gap-2 ml-2"
+              className="hover:text-accent-400 ml-2 flex items-center gap-2 transition-colors"
             >
               <img
                 className="h-8 rounded-full"
@@ -32,7 +38,10 @@ export default async function Navigation() {
               <span className="hidden sm:inline">Guest area</span>
             </Link>
           ) : (
-            <Link href="/account" className="hover:text-accent-400 transition-colors">
+            <Link
+              href="/account"
+              className="hover:text-accent-400 transition-colors"
+            >
               Guest area
             </Link>
           )}
