@@ -5,7 +5,7 @@ export default async function Navigation() {
   const session = await auth(); // its using in navigation, make route have navigation dynamic bc it work with cookies and headers
 
   return (
-    <nav className="flex items-center">
+    <nav className="z-10 flex items-center">
       <ul className="flex items-center gap-4 sm:gap-8 md:gap-16">
         <li className="h-full">
           <Link

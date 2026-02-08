@@ -11,7 +11,7 @@ function AccountContainer({ children }) {
   }
   return (
     <div
-      className={`grid h-full grid-cols-[0rem_1fr] grid-rows-1 gap-2 overflow-hidden transition-all duration-600 lg:gap-12`}
+      className={`relative grid h-full grid-cols-[0rem_1fr] grid-rows-1 gap-2 transition-all duration-600 lg:gap-12`}
     >
       <SideNavBtn isOpen={isOpen} onToggle={handleToggle} />
       <SideNavigation isOpen={isOpen} onToggle={handleToggle} />
