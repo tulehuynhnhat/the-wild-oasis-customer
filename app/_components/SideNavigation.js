@@ -32,7 +32,7 @@ function SideNavigation({ isOpen }) {
   const pathname = usePathname();
   return (
     <div
-      className={`h-full ${isOpen ? "translate-x-0" : " -translate-x-[200%]"} bg-primary-950 z-8 min-w-[13rem] overflow-hidden transition-all duration-600`}
+      className={`h-full ${isOpen ? "translate-x-0" : " -translate-x-[300%]"} bg-primary-950 z-8 min-w-[13rem] overflow-hidden transition-all duration-600`}
     >
       <nav className="border-primary-900 flex h-full flex-col border-r">
         <ul className="flex h-full flex-col gap-2 text-lg">
