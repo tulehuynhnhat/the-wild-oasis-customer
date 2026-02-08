@@ -14,9 +14,11 @@ export default async function Page() {
   const cabinNum = (await getCabins()).length;
 
   return (
-    <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
-      <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">Welcome to The Wild Oasis</h1>
+    <div className="text-sm sm:text-base grid grid-col-1 grid-row-5 gap-y-5 md:grid-cols-5 md:grid-rows-[1fr_1fr_auto] md:gap-x-12 lg:gap-x-24 lg:gap-y-32 md:text-lg items-center">
+      <div className="md:col-span-3">
+        <h1 className="text-2xl md:text-4xl mb-5 lg:mb-10 text-accent-400 font-medium">
+          Welcome to The Wild Oasis
+        </h1>
 
         <div className="space-y-8">
           <p>
@@ -39,32 +41,32 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="col-span-2">
+      <div className="md:col-span-2 row-2 md:row-auto">
         <Image
           src={image1}
           alt="Family sitting around a fire pit in front of cabin"
           placeholder="blur"
-          quality={80}
+          quality={75}
         />
       </div>
 
-      <div className="col-span-2 relative aspect-square">
+      <div className="md:col-span-2 relative aspect-square row-4 md:row-auto">
         <Image
           src="/about-2.jpg"
           fill
           sizes="100%"
-          quality={80}
+          quality={75}
           className="object-cover"
           alt="Family that manages The Wild Oasis"
         />
       </div>
 
-      <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+      <div className="md:col-span-3">
+        <h1 className="md:text-4xl text-2xl mb-5 md:mb-10 text-accent-400 font-medium">
           Managed by our family since 1962
         </h1>
 
-        <div className="space-y-8">
+        <div className="lg:space-y-8 md:space-y-4">
           <p>
             Since 1962, The Wild Oasis has been a cherished family-run retreat. Started by our
             grandparents, this haven has been nurtured with love and care, passing down through our
@@ -77,16 +79,15 @@ export default async function Page() {
             join us at The Wild Oasis soon, where tradition meets tranquility, and every visit is
             like coming home.
           </p>
-
-          <div>
-            <Link
-              href="/cabins"
-              className="inline-block mt-4 bg-accent-500 px-8 py-5 text-primary-800 text-lg font-semibold hover:bg-accent-600 transition-all"
-            >
-              Explore our luxury cabins
-            </Link>
-          </div>
         </div>
+      </div>
+      <div className="justify-self-center md:col-span-5 text-center">
+        <Link
+          href="/cabins"
+          className="inline-block mt-8 bg-accent-500 px-8 py-5 text-primary-800 text-base sm:text-lg  font-semibold hover:bg-accent-600 transition-all w-full"
+        >
+          Explore our luxury cabins
+        </Link>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import Cabin from '@/app/_components/Cabin';
-import Reservation from '@/app/_components/Reservation';
-import Spinner from '@/app/_components/Spinner';
-import { getCabin, getCabins } from '@/app/_lib/data-service';
-import { Suspense } from 'react';
+import Cabin from "@/app/_components/Cabin";
+import Reservation from "@/app/_components/Reservation";
+import Spinner from "@/app/_components/Spinner";
+import { getCabin, getCabins } from "@/app/_lib/data-service";
+import { Suspense } from "react";
 
 export async function generateMetadata({ params }) {
   const { name } = await getCabin((await params).cabinId);
@@ -24,11 +24,11 @@ export default async function Page({ params }) {
   const cabin = await getCabin(cabinId);
 
   return (
-    <div className="max-w-6xl mx-auto mt-8">
+    <div className="mx-auto mt-8 max-w-6xl">
       <Cabin cabin={cabin} />
 
       <div>
-        <h2 className="text-5xl font-semibold text-center mb-10  text-accent-400">
+        <h2 className="text-accent-400 mb-10 text-center text-2xl font-semibold md:text-5xl">
           Reserve {cabin.name} today. Pay on arrival.
         </h2>
         <Suspense fallback={<Spinner />}>

@@ -1,22 +1,25 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { updateGuest } from '../_lib/action';
-import SubmitButton from './SubmitButton';
+import { useState } from "react";
+import { updateGuest } from "../_lib/action";
+import SubmitButton from "./SubmitButton";
 
 function UpdateProfileForm({ guest, children }) {
   const [count, setCount] = useState();
   const { fullName, email, countryFlag, nationality, nationalID } = guest;
 
   return (
-    <form action={updateGuest} className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+    <form
+      action={updateGuest}
+      className="bg-primary-900 flex flex-col gap-6 px-3 py-4 text-sm sm:px-12 sm:py-8 sm:text-lg"
+    >
       <div className="space-y-2">
         <label>Full name</label>
         <input
           disabled
           name="fullName"
           defaultValue={fullName}
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="bg-primary-200 text-primary-800 w-full rounded-sm px-5 py-3 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
 
@@ -26,14 +29,18 @@ function UpdateProfileForm({ guest, children }) {
           disabled
           name="email"
           defaultValue={email}
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="bg-primary-200 text-primary-800 w-full rounded-sm px-5 py-3 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
 
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Where are you from?</label>
-          <img src={countryFlag} alt="Country flag" className="h-5 rounded-sm" />
+          <img
+            src={countryFlag}
+            alt="Country flag"
+            className="h-5 rounded-sm"
+          />
         </div>
 
         {children}
@@ -44,11 +51,11 @@ function UpdateProfileForm({ guest, children }) {
         <input
           name="nationalID"
           defaultValue={nationalID}
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+          className="bg-primary-200 text-primary-800 w-full rounded-sm px-5 py-3 shadow-sm"
         />
       </div>
 
-      <div className="flex justify-end items-center gap-6">
+      <div className="flex items-center justify-end gap-6">
         <SubmitButton pendingLable="Updating...">Update profile</SubmitButton>
       </div>
     </form>

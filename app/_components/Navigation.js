@@ -5,8 +5,8 @@ export default async function Navigation() {
   const session = await auth(); // its using in navigation, make route have navigation dynamic bc it work with cookies and headers
 
   return (
-    <nav className="z-10 text-xl">
-      <ul className="flex gap-16 items-center">
+    <nav className="z-10">
+      <ul className="flex gap-2 sm:gap-8 md:gap-16 items-center">
         <li>
           <Link href="/cabins" className="hover:text-accent-400 transition-colors">
             Cabins
@@ -21,7 +21,7 @@ export default async function Navigation() {
           {session?.user?.image ? (
             <Link
               href="/account"
-              className="hover:text-accent-400 transition-colors flex items-center gap-4"
+              className="hover:text-accent-400 transition-colors flex items-center gap-2 ml-2"
             >
               <img
                 className="h-8 rounded-full"
@@ -29,7 +29,7 @@ export default async function Navigation() {
                 alt={session.user.name}
                 referrerPolicy="no-referrer"
               />
-              <span>Guest area</span>
+              <span className="hidden sm:inline">Guest area</span>
             </Link>
           ) : (
             <Link href="/account" className="hover:text-accent-400 transition-colors">
