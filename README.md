@@ -2,8 +2,6 @@
 
 The Oasis Customer is a customer-facing booking website where guests can browse cabins, make reservations, and manage their profiles using a shared API and database.
 
----
-
 ## Features
 
 ### Authentication
